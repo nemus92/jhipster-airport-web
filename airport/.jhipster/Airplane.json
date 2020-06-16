@@ -1,0 +1,28 @@
+{
+  "name": "Airplane",
+  "fields": [
+    {
+      "fieldName": "code",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "flight",
+      "otherEntityRelationshipName": "airplane",
+      "relationshipName": "flightAirplane"
+    }
+  ],
+  "changelogDate": "20200615190150",
+  "entityTableName": "airplane",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

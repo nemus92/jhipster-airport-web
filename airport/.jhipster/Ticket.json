@@ -1,0 +1,39 @@
+{
+  "name": "Ticket",
+  "fields": [
+    {
+      "fieldName": "seatClass",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "price",
+      "fieldType": "Double"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "passenger",
+      "otherEntityRelationshipName": "ticket",
+      "relationshipName": "passenger"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "flight",
+      "otherEntityRelationshipName": "ticketF",
+      "relationshipName": "flight",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200615190050",
+  "entityTableName": "ticket",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

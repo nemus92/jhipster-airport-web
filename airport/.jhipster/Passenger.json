@@ -1,0 +1,48 @@
+{
+  "name": "Passenger",
+  "fields": [
+    {
+      "fieldName": "firstName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phoneNumber",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "ticket",
+      "otherEntityRelationshipName": "passenger",
+      "relationshipName": "ticketP",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "ticket",
+      "otherEntityRelationshipName": "passenger",
+      "relationshipName": "ticket",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200615185850",
+  "entityTableName": "passenger",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

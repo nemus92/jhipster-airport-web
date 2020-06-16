@@ -1,0 +1,85 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="Nemanja (generated)" id="1592249841063-2">
+        <createTable tableName="airplane">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="airplanePK"/>
+            </column>
+            <column name="code" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Nemanja (generated)" id="1592249841063-3">
+        <createTable tableName="airport">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="airportPK"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="location_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Nemanja (generated)" id="1592249841063-4">
+        <createTable tableName="flight">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="flightPK"/>
+            </column>
+            <column name="arrival" type="TIMESTAMP"/>
+            <column name="departure" type="TIMESTAMP"/>
+            <column name="airplane_id" type="BIGINT"/>
+            <column name="airport_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Nemanja (generated)" id="1592249841063-5">
+        <createTable tableName="location">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="locationPK"/>
+            </column>
+            <column name="city" type="VARCHAR(255)"/>
+            <column name="postal_code" type="VARCHAR(255)"/>
+            <column name="state" type="VARCHAR(255)"/>
+            <column name="street_address" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Nemanja (generated)" id="1592249841063-6">
+        <createTable tableName="passenger">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="passengerPK"/>
+            </column>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="first_name" type="VARCHAR(255)"/>
+            <column name="last_name" type="VARCHAR(255)"/>
+            <column name="phone_number" type="VARCHAR(255)"/>
+            <column name="ticket_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Nemanja (generated)" id="1592249841063-7">
+        <createTable tableName="ticket">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="ticketPK"/>
+            </column>
+            <column name="price" type="DOUBLE"/>
+            <column name="seat_class" type="VARCHAR(255)"/>
+            <column name="flight_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Nemanja (generated)" id="1592249841063-8">
+        <addUniqueConstraint columnNames="location_id" constraintName="UC_AIRPORTLOCATION_ID_COL" tableName="airport"/>
+    </changeSet>
+    <changeSet author="Nemanja (generated)" id="1592249841063-9">
+        <addForeignKeyConstraint baseColumnNames="airport_id" baseTableName="flight" constraintName="FK806y3y5ikum10nt8x9fbxbk3n" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="airport" validate="true"/>
+    </changeSet>
+    <changeSet author="Nemanja (generated)" id="1592249841063-10">
+        <addForeignKeyConstraint baseColumnNames="airplane_id" baseTableName="flight" constraintName="FKb8t4272gfgo1feyyidvscbjm0" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="airplane" validate="true"/>
+    </changeSet>
+    <changeSet author="Nemanja (generated)" id="1592249841063-11">
+        <addForeignKeyConstraint baseColumnNames="flight_id" baseTableName="ticket" constraintName="FKfju27cbcbl1w16qeora1r636q" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="flight" validate="true"/>
+    </changeSet>
+    <changeSet author="Nemanja (generated)" id="1592249841063-12">
+        <addForeignKeyConstraint baseColumnNames="ticket_id" baseTableName="passenger" constraintName="FKos3sguiasei5a6ysi44ovwou2" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="ticket" validate="true"/>
+    </changeSet>
+    <changeSet author="Nemanja (generated)" id="1592249841063-13">
+        <addForeignKeyConstraint baseColumnNames="location_id" baseTableName="airport" constraintName="FKs3y811c2sh4jigdeye9bcdwk" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="location" validate="true"/>
+    </changeSet>
+    <changeSet author="Nemanja (generated)" id="1592249841063-1">
+        <alterSequence incrementBy="50" sequenceName="sequence_generator"/>
+    </changeSet>
+</databaseChangeLog>

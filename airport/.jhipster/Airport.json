@@ -1,0 +1,36 @@
+{
+  "name": "Airport",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "location",
+      "otherEntityRelationshipName": "airport",
+      "relationshipName": "location",
+      "otherEntityField": "city",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "flight",
+      "otherEntityRelationshipName": "airport",
+      "relationshipName": "flightAirport"
+    }
+  ],
+  "changelogDate": "20200615185750",
+  "entityTableName": "airport",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
