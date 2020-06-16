@@ -44,15 +44,13 @@ public class PassengerService {
     		throw new TicketIdNotExistsException();
     	}
     	
-    	if (passenger.isPresent() && ticket.isPresent()) {
-    		if (passenger.get().getTicket() != null) {
-    			if (passenger.get().getTicket().getId().equals(reservationDTO.getIdTicket())) {
-    				throw new TicketIdAlreadyReservedException(); 
-    			}
-    		}
-    		
-    		passenger.get().setTicket(ticket.get());
-    	}
+		if (passenger.get().getTicket() != null) {
+			if (passenger.get().getTicket().getId().equals(reservationDTO.getIdTicket())) {
+				throw new TicketIdAlreadyReservedException(); 
+			}
+		}
+		
+		passenger.get().setTicket(ticket.get());
     }
     
     public List<Passenger> getAllPassengersOnFlight(FlightDTO fDTO) {

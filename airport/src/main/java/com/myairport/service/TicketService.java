@@ -40,15 +40,13 @@ public class TicketService {
     	if (!ticket.isPresent()) {
     		throw new TicketIdNotExistsException();
     	}
-    	
-    	if (flight.isPresent() && ticket.isPresent()) {
-    		if (ticket.get().getFlight() != null) {
-    			if (ticket.get().getFlight().getId().equals(ftDTO.getIdFlight())) {
-    				throw new FlightAlreadyAssignedException();
-    			}
-    		}
 
-    		ticket.get().setFlight(flight.get());
-    	}
+		if (ticket.get().getFlight() != null) {
+			if (ticket.get().getFlight().getId().equals(ftDTO.getIdFlight())) {
+				throw new FlightAlreadyAssignedException();
+			}
+		}
+
+		ticket.get().setFlight(flight.get());
     }
 }
